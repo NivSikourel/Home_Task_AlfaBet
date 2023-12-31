@@ -125,21 +125,3 @@ The base URL for the API is assumed to be `http://localhost:8080`.
       "message": "Event deleted successfully"
     }
     ```
-
-#### 6. Retrieve Events Based on Location or Venue
-
-- **Endpoint:** `/events?location={location}&venue={venue}`
-- **Method:** `GET`
-- **Request Format:** N/A
-- **Response Format:**
-  - Status Code: `200 OK`
-  - JSON array containing details of events based on the specified location and/or venue.
-    ```json
-    [
-      {
-        "id": 1,
-        "name": "Event 1",
-        "location": "Location 1",
-        "venue": "Venue 1",
-        "date": "YYYY-MM-DDTHH:MM:SS",
-        "popularity":
