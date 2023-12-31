@@ -1,0 +1,145 @@
+## Event Management API Documentation
+
+### Base URL
+
+The base URL for the API is assumed to be `http://localhost:8080`.
+
+### Endpoints
+
+#### 1. Schedule a New Event
+
+- **Endpoint:** `/events`
+- **Method:** `POST`
+- **Request Format:**
+  - JSON payload representing the new event details.
+    ```json
+    {
+      "name": "Event Name",
+      "location": "Event Location",
+      "venue": "Event Venue",
+      "date": "YYYY-MM-DDTHH:MM:SS",  // Event date and time in ISO format
+      "popularity": 100
+    }
+    ```
+- **Response Format:**
+  - Status Code: `201 Created`
+  - JSON response containing the newly created event details, including the assigned event ID.
+    ```json
+    {
+      "id": 1,
+      "name": "Event Name",
+      "location": "Event Location",
+      "venue": "Event Venue",
+      "date": "YYYY-MM-DDTHH:MM:SS",
+      "popularity": 100,
+      "created_at": "YYYY-MM-DD HH:MM:SS"
+    }
+    ```
+
+#### 2. Retrieve a List of All Scheduled Events
+
+- **Endpoint:** `/events`
+- **Method:** `GET`
+- **Request Format:** N/A
+- **Response Format:**
+  - Status Code: `200 OK`
+  - JSON array containing details of all scheduled events.
+    ```json
+    [
+      {
+        "id": 1,
+        "name": "Event 1",
+        "location": "Location 1",
+        "venue": "Venue 1",
+        "date": "YYYY-MM-DDTHH:MM:SS",
+        "popularity": 100,
+        "created_at": "YYYY-MM-DD HH:MM:SS"
+      },
+      {
+        "id": 2,
+        "name": "Event 2",
+        "location": "Location 2",
+        "venue": "Venue 2",
+        "date": "YYYY-MM-DDTHH:MM:SS",
+        "popularity": 150,
+        "created_at": "YYYY-MM-DD HH:MM:SS"
+      },
+      // ... more events
+    ]
+    ```
+
+#### 3. Retrieve Details of a Specific Event
+
+- **Endpoint:** `/events/{event_id}`
+- **Method:** `GET`
+- **Request Format:** N/A
+- **Response Format:**
+  - Status Code: `200 OK`
+  - JSON object containing details of the specified event.
+    ```json
+    {
+      "id": 1,
+      "name": "Event 1",
+      "location": "Location 1",
+      "venue": "Venue 1",
+      "date": "YYYY-MM-DDTHH:MM:SS",
+      "popularity": 100,
+      "created_at": "YYYY-MM-DD HH:MM:SS"
+    }
+    ```
+
+#### 4. Update Details of a Specific Event
+
+- **Endpoint:** `/events/{event_id}`
+- **Method:** `PUT`
+- **Request Format:**
+  - JSON payload representing the updated event details.
+    ```json
+    {
+      "name": "Updated Event Name",
+      "location": "Updated Event Location",
+      "venue": "Updated Event Venue",
+      "date": "YYYY-MM-DDTHH:MM:SS",
+      "popularity": 120
+    }
+    ```
+- **Response Format:**
+  - Status Code: `200 OK`
+  - JSON response indicating the event has been updated successfully.
+    ```json
+    {
+      "message": "Event updated successfully"
+    }
+    ```
+
+#### 5. Delete a Specific Event
+
+- **Endpoint:** `/events/{event_id}`
+- **Method:** `DELETE`
+- **Request Format:** N/A
+- **Response Format:**
+  - Status Code: `200 OK`
+  - JSON response indicating the event has been deleted successfully.
+    ```json
+    {
+      "message": "Event deleted successfully"
+    }
+    ```
+
+#### 6. Retrieve Events Based on Location or Venue
+
+- **Endpoint:** `/events?location={location}&venue={venue}`
+- **Method:** `GET`
+- **Request Format:** N/A
+- **Response Format:**
+  - Status Code: `200 OK`
+  - JSON array containing details of events based on the specified location and/or venue.
+    ```json
+    [
+      {
+        "id": 1,
+        "name": "Event 1",
+        "location": "Location 1",
+        "venue": "Venue 1",
+        "date": "YYYY-MM-DDTHH:MM:SS",
+        "popularity":
