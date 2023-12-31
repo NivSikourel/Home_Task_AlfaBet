@@ -8,9 +8,6 @@ Manage and schedule events using a simple RESTful API built with Python's http.s
 - [Architecture](#architecture)
 - [Setup Instructions](#setup-instructions)
 - [API Endpoints](#api-endpoints)
-- [Performance Optimizations](#performance-optimizations)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
